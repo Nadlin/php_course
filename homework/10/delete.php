@@ -5,7 +5,7 @@ try {
         $id = $_GET['id'];
         $mysqli = new mysqli("localhost", "root", "", "guestbook");
         deleteMessage($mysqli, $id);
-        header("Location: index-file-edit-delete.php");
+        header("Location: index.php");
         exit();
     }
 } catch (Throwable $e) {

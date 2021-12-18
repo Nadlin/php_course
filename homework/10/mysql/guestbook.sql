@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 18 2021 г., 19:53
+-- Время создания: Дек 18 2021 г., 22:24
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -32,7 +32,7 @@ CREATE TABLE `message` (
   `user` varchar(25) NOT NULL,
   `message_text` varchar(2000) NOT NULL,
   `message_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `avatar` varchar(20) DEFAULT NULL
+  `avatar` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -159,7 +159,7 @@ INSERT INTO `message` (`id`, `user`, `message_text`, `message_time`, `avatar`) V
 (126, 'Popova Rita', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', '2021-12-15 21:44:40', 'images/girl.jpg'),
 (130, 'xsx', 'efefe', '2021-12-15 22:00:51', 'images/boy-2.jpg'),
 (131, 'Popov Edik', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2021-12-18 18:30:32', 'images/163984143233'),
-(132, 'Kristina', 'Vestibulum pharetra, arcu id congue pretium, sem odio ris non varius lorem. Maecenas sed neque nunc. Morbi ac nibh blandit, efficitur tell', '2021-12-18 18:35:57', 'images/1639841757_11');
+(139, 'Kristina', 'koop', '2021-12-18 22:23:44', 'images/1639855424399.jpg');
 
 --
 -- Индексы сохранённых таблиц
@@ -179,7 +179,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT для таблицы `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

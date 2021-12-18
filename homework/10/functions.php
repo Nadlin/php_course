@@ -40,8 +40,6 @@ function getDataForEditing(object $mysqli, int $id)
 
 function updateData(object $mysqli, string $name, string $comment, string $id)
 {
-   // UPDATE message SET user = ?, message_text = ?, message_time = ? WHERE  id = ?;
-    //$sql = "INSERT INTO guestbook.message (user, message_text, avatar) VALUES ('$name', '$comment', '$file_url')";
     $sql = "UPDATE guestbook.message SET user = '$name', message_text = '$comment' WHERE id = $id";
     if (!($result = $mysqli->query($sql))) {
         throw new Exception($mysqli->error);

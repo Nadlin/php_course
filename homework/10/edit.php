@@ -10,7 +10,6 @@ try {
     $error = $e->getMessage();
     include 'template/error.php';
 }
-
 ?>
 <!DOCTYPE html>
 <html>

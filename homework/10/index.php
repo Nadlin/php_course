@@ -1,10 +1,11 @@
 <?php
 /*
-В PHP организовать выборку данных из базы с постраничным выводом
+Добавление сообщения c файлом / редактирование / удаление сообщения
  */
 require 'functions.php';
 try {
     $page = getPage();
+    // connect в базу отдельной функцией
     $mysqli = new mysqli("localhost", "root", "", "guestbook");
     $sql = 'SELECT COUNT(*) FROM message'; // в count можно указывать идентификатор и др., но для подсчета строк лучше использовать *
     // можно использовать псевдоним 'SELECT COUNT(*) as XXX FROM message' и потом обращаться по нему, можно и без as, сразу имя псевдонима
@@ -21,7 +22,6 @@ try {
         throw new Exception($mysqli->error);
     }
     $current_messages = $result->fetch_all(MYSQLI_ASSOC);
-
     include 'template/page.php';
 
 } catch (Throwable $e) {
