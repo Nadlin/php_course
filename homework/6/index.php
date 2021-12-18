@@ -10,7 +10,7 @@ require 'functions.php';
 try {
     $page = getPage();
     $text = getAllText();
-    $paragraphs_per_page = 3;
+    $paragraphs_per_page = 4;
     $arr_paragraphs = getParagraphs($text);
     $paragraph_count = countParagraphs($arr_paragraphs);
     $pages = getPages($paragraph_count, $paragraphs_per_page);

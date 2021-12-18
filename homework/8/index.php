@@ -6,7 +6,8 @@ require 'functions.php';
 try {
     $page = getPage();
     $mysqli = new mysqli("localhost", "root", "", "guestbook");
-    $sql = 'SELECT COUNT(*) FROM message';
+    $sql = 'SELECT COUNT(*) FROM message'; // в count можно указывать идентификатор и др., но для подсчета строк лучше использовать *
+    // можно использовать псевдоним 'SELECT COUNT(*) as XXX FROM message' и потом обращаться по нему, можно и без as, сразу имя псевдонима
     if (!($result = $mysqli->query($sql))) {
         throw new Exception($mysqli->error);
     }
@@ -27,6 +28,8 @@ try {
     $error = $e->getMessage();
     include 'template/error.php';
 }
+
+// Notes! можно было бы переменную $mysqli передавать в функцию и запрос в базу за выборкой данных писать в функции
 
 
 

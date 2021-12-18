@@ -24,8 +24,8 @@ try {
     }
 
     for ($i = 0; $i <= 110; $i++) {
-        $user = 'user ' . $i + 1;
-        $message = 'Test message from user ' . $i + 1;
+        $user = 'user ' . $i + 1; // До PHP8.0: 'user ' . ($i + 1)
+        $message = 'Test message from user ' . $i + 1; // Замечание! В более ранних версиях (до PHP8.0) приоритет у . был такой же как у +. Поэтому надо быдо бы скобками указать очередность выполнения действий: 'Test message from user ' . ($i + 1);
         $sql = "INSERT INTO guestbook.message (user, message_text) VALUES ('$user', '$message')";
         if (!($result = $mysqli->query($sql))) {
             throw new Exception($mysqli->error);

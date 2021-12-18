@@ -41,7 +41,7 @@ function getFirstCurrentParagraph(int $currentPage, int $paragraphs_per_page): i
 function getCurrentParagraphs(array $arr, int $offset, int $paragraphs_per_page, string $word): array
 {
     $cur_arr = array_slice($arr, $offset, $paragraphs_per_page);
-    for ($i=0; $i < $paragraphs_per_page; $i++) {
+    for ($i=0; $i < count($cur_arr); $i++) { // Замечание! Для последней страницы м.б. проблема если использовать $i < $paragraphs_per_page, если число абзацев меньше $paragraphs_per_page. Лкчше использовать $i < count($cur_arr)
         $cur_arr[$i] = highlightWords($cur_arr[$i], $word);
         $cur_arr[$i] = highlightFirstWord($cur_arr[$i]);
     }

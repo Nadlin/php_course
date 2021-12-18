@@ -18,7 +18,7 @@ function checkWords(string $text, array $words): bool
 $words = ['что', 'неоднократно'];
 
 if ($file_r = fopen('text.txt', 'r')) {
-    $file_w = fopen('text_new.txt', 'x+');
+    $file_w = fopen('text_new.txt', 'x'); // в x+ нужды нет, так как нам нужен файл только для записи
     while (!feof($file_r)) {
         $text = fgets($file_r);
         $delimeter = '. ';

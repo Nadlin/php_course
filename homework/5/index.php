@@ -98,6 +98,7 @@ $arr_new = array_count_values($arr_symbols); //  возвращает масси
 var_dump($arr_new);
 ksort($arr_new, $flags = SORT_STRING);
 var_dump($arr_new);
+//! Замечание. Для символов < 32 (которые не имеют видимого символа, например, возврат каретки) можно было сделать вывод кода для них
 ?>
 
 
