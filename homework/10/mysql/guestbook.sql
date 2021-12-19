@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 18 2021 г., 22:24
+-- Время создания: Дек 19 2021 г., 16:09
 -- Версия сервера: 8.0.24
 -- Версия PHP: 8.0.8
 
@@ -150,16 +150,13 @@ INSERT INTO `message` (`id`, `user`, `message_text`, `message_time`, `avatar`) V
 (108, 'user 108', 'Test message from user 108', '2021-12-11 14:08:29', NULL),
 (109, 'user 109', 'Test message from user 109', '2021-12-11 14:08:29', NULL),
 (110, 'user 110', 'Test message from user 110', '2021-12-11 14:08:29', NULL),
-(111, 'user 111', 'Test message from user 111', '2021-12-11 14:08:29', NULL),
-(112, 'nadezhda.linnik', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using', '2021-12-15 19:41:34', NULL),
-(113, 'Molchanova Elena', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', '2021-12-15 19:48:37', NULL),
-(114, 'Poroh Natalya', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ', '2021-12-15 19:54:33', NULL),
-(116, 'fref', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#039;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', '2021-12-15 20:38:28', NULL),
-(118, 'fref', '&lt;script&gt;alert(&apos;hi-hi&apos;)&lt;/script&gt;', '2021-12-15 20:43:02', NULL),
-(126, 'Popova Rita', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', '2021-12-15 21:44:40', 'images/girl.jpg'),
-(130, 'xsx', 'efefe', '2021-12-15 22:00:51', 'images/boy-2.jpg'),
-(131, 'Popov Edik', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2021-12-18 18:30:32', 'images/163984143233'),
-(139, 'Kristina', 'koop', '2021-12-18 22:23:44', 'images/1639855424399.jpg');
+(150, 'Miroslav Zapolski', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2021-12-19 15:38:04', NULL),
+(151, 'Poroh Natalya', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.', '2021-12-19 15:38:36', 'images/1639917516701.jpg'),
+(152, 'Oleg Romanovki', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. ', '2021-12-19 15:39:47', 'images/1639917587397.jpg'),
+(153, 'Maksim Vlasenko', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', '2021-12-19 15:40:31', 'images/1639917631231.jpg'),
+(154, 'Daria Romanova', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. ', '2021-12-19 15:40:56', 'images/1639917656938.jpg'),
+(155, 'Natali', 'Many publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &apos;lorem ipsum&apos; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', '2021-12-19 15:41:24', NULL),
+(156, 'Masha Kurochkina', 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text.', '2021-12-19 15:41:54', 'images/1639917714359.jpg');
 
 --
 -- Индексы сохранённых таблиц
@@ -179,7 +176,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT для таблицы `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

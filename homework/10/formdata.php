@@ -2,33 +2,41 @@
 require 'functions.php';
 try {
     if (isset($_POST['comment'])) {
-        echo 'Страница ссылки: ' . $_SERVER['HTTP_REFERER'];
-        foreach ($_POST as $key => $value) {
-            $_POST[$key] = htmlspecialchars($value, ENT_QUOTES | ENT_HTML5);
-           // echo "<br>$key: $_POST[$key]<br>";
-        }
+        if (!empty($_POST['user']) && !empty($_POST['message_text'])) {
+            //echo 'Страница ссылки: ' . $_SERVER['HTTP_REFERER'];
+            foreach ($_POST as $key => $value) {
+                $_POST[$key] = htmlspecialchars($value, ENT_QUOTES | ENT_HTML5);
+                // echo "<br>$key: $_POST[$key]<br>";
+            }
+            $host = "localhost"; $username = "root"; $password = ""; $dbname = "guestbook"; $message_table = "message";  $file_dest = "";
+            $mysqli = connectToDataBase($host, $username, $password, $dbname);
+            //var_dump($_FILES); exit();
 
-        $mysqli = new mysqli("localhost", "root", "", "guestbook");
-        //var_dump($_FILES);
+            if ($_FILES['file']['error'] == 0 && ($_FILES['file']['type'] == 'image/png' || $_FILES['file']['type'] == 'image/jpeg')) {
+                // $file_dest = 'images/' . $_FILES['file']['name'];
+                $file_dest = 'images/' . time() . mt_rand(100, 999) . '.jpg';
+                $isFileLoaded = move_uploaded_file ($_FILES['file']['tmp_name'] , $file_dest);
+                if (!$isFileLoaded) {
+                    $file = $_FILES['file']['name'];
+                    throw new Exception("Файл $file не был загружен.");
+                }
+            }
 
-        if ($_FILES['file']['error'] == 0) {
-            // $file_dest = 'images/' . $_FILES['file']['name'];
-            $file_dest = 'images/' . time() . mt_rand(100, 999) . '.jpg';
-            $isFileLoaded = move_uploaded_file ($_FILES['file']['tmp_name'] , $file_dest);
-        }
+            addData($mysqli, $message_table, $_POST['user'], $_POST['message_text'], $file_dest);
+            $file = $_FILES['file']['name'];
+            if ($isFileLoaded) {
 
-        addData($mysqli, $_POST['user'], $_POST['message_text'], $file_dest);
-        $file = $_FILES['file']['name'];
-        if ($isFileLoaded) {
+                echo "Файл $file был успешно загружен";
+            } else {
+                $err_code = $_FILES['file']['error'];
+                echo "Файл $file не был загружен. Код ошибки $err_code";
+            }
 
-            echo "Файл $file был успешно загружен";
+            header("Location: index.php");
+            exit();
         } else {
-            $err_code = $_FILES['file']['error'];
-            echo "Файл $file не был загружен. Код ошибки $err_code";
+            throw new Exception('Ваше сообщение не может быть опубликовано');
         }
-
-        header("Location: index.php");
-        exit();
     }
 } catch (Throwable $e) {
     $error = $e->getMessage();

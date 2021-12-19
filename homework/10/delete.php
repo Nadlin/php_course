@@ -1,10 +1,11 @@
 <?php
 require 'functions.php';
 try {
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id = $_GET['id'];
-        $mysqli = new mysqli("localhost", "root", "", "guestbook");
-        deleteMessage($mysqli, $id);
+        $host = "localhost"; $username = "root"; $password = ""; $dbname = "guestbook"; $message_table = "message";
+        $mysqli = connectToDataBase($host, $username, $password, $dbname);
+        deleteMessage($mysqli, $message_table, $id,);
         header("Location: index.php");
         exit();
     }

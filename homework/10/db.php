@@ -7,7 +7,7 @@ try {
     if ($mysqli->connect_errno) {
         throw new Exception($mysqli->connect_error);
     }
-    $sql = "ALTER TABLE guestbook.message ADD avatar VARCHAR(20) NULL";
+    $sql = "ALTER TABLE guestbook.message ADD avatar VARCHAR(40) NULL";
     if (!($result = $mysqli->query($sql))) {
         throw new Exception($mysqli->error);
     }
