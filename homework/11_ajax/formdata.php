@@ -25,14 +25,6 @@ try {
 
             addData($mysqli, $message_table, $_POST['user'], $_POST['message_text'], $file_dest);
             $file = $_FILES['file']['name'];
-            /*if ($isFileLoaded) {
-
-                echo "Файл $file был успешно загружен";
-            } else {
-                $err_code = $_FILES['file']['error'];
-                echo "Файл $file не был загружен. Код ошибки $err_code";
-            }*/
-
             header("Location: index.php");
             exit();
         } else {

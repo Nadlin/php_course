@@ -1,11 +1,13 @@
 <?php
 require 'functions.php';
+require 'config.php';
 try {
     if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $id = $_GET['id'];
-        $host = "localhost"; $username = "root"; $password = ""; $dbname = "guestbook"; $message_table = "message";
         $mysqli = connectToDataBase($host, $username, $password, $dbname);
         $message = getDataForEditing($mysqli, $message_table, $id);
+    } else {
+        header("Location: template/error-page.php");
     }
 } catch (Throwable $e) {
     $error = $e->getMessage();
