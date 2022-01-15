@@ -273,5 +273,95 @@ WHERE
 	lessondate BETWEEN '2020-05-04' AND '2020-05-08'
 GROUP BY groupstudents.groupnumber, lessontypes.lessontype, subjects.`subject`
 ORDER BY groupstudents.groupnumber
+
+----------------------------------------
+по преподавателям
+----------------------------------------
+SELECT
+	teachers.surname,
+	subjects.`subject`,
+	lessontypes.lessontype,
+	SUM(lessons.hours)
+FROM
+	groupstudents
+	INNER JOIN
+	groupteachers
+	ON
+		groupstudents.idcurriculum = groupteachers.idcurriculum AND
+		groupstudents.idgroup = groupteachers.idgroup
+	INNER JOIN
+	subjecthours
+	ON
+		groupteachers.idcurriculum = subjecthours.idcurriculum AND
+		groupteachers.idsubjecthours = subjecthours.idsubjecthours
+	INNER JOIN
+	subjects
+	ON
+		subjecthours.idsubject = subjects.idsubject
+	INNER JOIN
+	lessons
+	ON
+		groupteachers.idgroupteacher = lessons.idgroupteacher
+	INNER JOIN
+	classrooms
+	ON
+		lessons.idclassroom = classrooms.idclassroom
+	INNER JOIN
+	buildings
+	ON
+		classrooms.idbuilding = buildings.idbuilding
+	INNER JOIN
+	lessontypes
+	ON
+		subjecthours.idlessontype = lessontypes.idlessontype
+	INNER JOIN
+	teachers
+	ON
+		groupteachers.idteacher = teachers.idteacher
+WHERE
+	lessondate BETWEEN '2020-05-04' AND '2020-05-08'
+GROUP BY
+	lessontypes.lessontype,
+	subjects.`subject`,
+	teachers.surname
+ORDER BY teachers.surname
+
+--------------------------------------
+по аудиториям
+----------------------------------------
+SELECT
+	classrooms.classroomnumber,
+	lessontypes.lessontype,
+	subjects.`subject`,
+	SUM(lessons.hours)
+FROM
+	lessons
+	INNER JOIN
+	classrooms
+	ON
+		lessons.idclassroom = classrooms.idclassroom
+	INNER JOIN
+	subjecthours
+	INNER JOIN
+	groupteachers
+	ON
+		subjecthours.idcurriculum = groupteachers.idcurriculum AND
+		lessons.idgroupteacher = groupteachers.idgroupteacher AND
+		subjecthours.idsubjecthours = groupteachers.idsubjecthours
+	INNER JOIN
+	subjects
+	ON
+		subjecthours.idsubject = subjects.idsubject
+	INNER JOIN
+	lessontypes
+	ON
+		subjecthours.idlessontype = lessontypes.idlessontype
+WHERE
+	lessondate BETWEEN '2020-05-04' AND '2020-05-08'
+GROUP BY classrooms.classroomnumber,
+	lessontypes.lessontype,
+	subjects.`subject`
+ORDER BY
+	classrooms.classroomnumber
 */
 
