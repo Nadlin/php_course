@@ -1,0 +1,62 @@
+<div id="block">
+  <fieldset>
+    <legend>Новая задача</legend>
+      <p>Задача:</p>
+      <textarea type="text" id="text-item" rows="3"></textarea>
+      <p>Примечания:</p>
+      <textarea id="notes" rows="3"></textarea>
+      <ul class="importance"><p>Приоритетность:</p>
+        <li title="максимально срочно" data-color="red" data-priority="1"></li>
+        <li title="срочно" data-color="orange" data-priority="2"></li>
+        <li title="не срочно" data-color="yellow" data-priority="3"></li>
+        <li class="shadow" title="может подождать" data-color="green" data-priority="4"></li>
+      </ul>
+      <p>Срок выполнения:</p> 
+      <input type="text" id="datepicker">
+      </br>
+      <input type="button" id="addItem" value="Добавить задачу">
+  </fieldset>
+  <br>
+  <div class="buttons">
+    <input id="priority" class="sort" type="button" value="сортировать по приоритетности">
+    <input id="pri-term" class="sort" type="button" value="сортировать по сроку выполнения">
+    <input id="chosen" type="button" value="избранные">
+  </div>
+</div>
+<div id="edit-form" class="mydialog" title="Редактирование задачи" style="display: none;">
+  <div>
+    <label for="task_edit">Задача:</label>
+    <textarea name="task-edit" id="task-edit" rows="3" cols="50" value="" class="text ui-widget-content ui-corner-all" style="width: 100%;"></textarea>
+  </div>
+  <div>
+    <label for="notes-edit">Примечания:</label>
+    <textarea style="width: 100%; box-sizing: border-box;" name="notes-edit" id="notes-edit" value="" class="text ui-widget-content ui-corner-all"></textarea>
+  </div>
+  <div>
+    <ul class="importance"><span>Приоритетность:</span>
+        <li title="максимально срочно" data-color="red" data-priority="1"></li>
+        <li title="срочно" data-color="orange" data-priority="2"></li>
+        <li title="не срочно" data-color="yellow" data-priority="3"></li>
+        <li class="shadow" title="может подождать" data-color="green" data-priority="4"></li>
+    </ul>
+      <span>Срок выполнения:</span> 
+      <input type="text" id="datepickerD">
+  </div>
+</div>
+<div id="completed-form" title="Задача выполнена" style="display: none;">
+  <div id="task-completed"></div>
+  <div id="notes-completed"></div>
+  <div>
+    <span>Срок выполнения:</span>
+    <span id="date-termination"></span>
+  </div>
+  <div>
+    <span>Дата закрытия задачи:</span>
+    <span id="date-completed"></span>
+  </div>
+  <div>
+    <label for="notes_completed">Примечания:</label>
+    <textarea style="width: 100%; box-sizing: border-box;" name="notes_completed" id="notes_completed" value="" ></textarea>
+  </div>
+</div>
+<div id="delete" title="Вы действительно хотите удалить задачу?">

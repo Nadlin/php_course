@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MVC</title>
+    <link href="https://fonts.googleapis.com/css?family=Caveat:700" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+   </head>
+  <body>
+    <header>
+        <a class="menu active" href="#current">Current Tasks<span id="current-n"><?= $qty ?></span></a>
+        <a class="menu" href="#completed">Completed Tasks<span id="completed-n"></span></a>
+        <div class="menu greeting">
+            <div>Welcome<div class="name"><?= $_SESSION['userEmail'] ?></div></div>
+            <a href="/logout" <div id="logout" class="logout" title="Logout"></div></a>
+        </div>
+    </header>
+    <div id="message"></div>
+    <div id="container">
+        <div id="block">
+
+            <fieldset>
+                <legend>New Task</legend>
+                <form id="form">
+                    <p>Task:</p>
+                    <textarea type="text" id="text-item" rows="3" required></textarea>
+                    <p>Notes:</p>
+                    <textarea id="notes" rows="3"></textarea>
+                    <ul class="importance"><p>Priority:</p>
+                        <li title="максимально срочно" data-color="red" data-priority="1"></li>
+                        <li title="срочно" data-color="orange" data-priority="2"></li>
+                        <li title="не срочно" data-color="yellow" data-priority="3"></li>
+                        <li class="shadow" title="может подождать" data-color="green" data-priority="4"></li>
+                    </ul>
+                    <p>Due Date:</p>
+                    <input type="text" id="datepicker" required autocomplete="off">
+                    <input  type="submit" id="addItem" value="Add Task">
+                </form>
+
+            </fieldset>
+            <br>
+            <div class="buttons">
+                <a href="?sort=priority" id="priority" class="sort <?= ($param == 'priority') ? 'active' : ''?>">sort by priority</a>
+                <a href="?sort=date" id="pri-term" class="sort <?= ($param == 'date') ? 'active' : ''?>">sort by due date</a>
+                <a href="?sort=date" id="chosen" class="sort <?= ($param == 'favorites') ? 'active' : ''?>">favorites</a>
+                <ul id="prior" class="importance">
+                    <a href="?filter=red" class="red <?= ($param == 'red') ? 'shadow' : ''?>" title="extremely" data-color="red" data-priority="1"></a>
+                    <a href="?filter=orange" class="orange <?= ($param == 'orange') ? 'shadow' : ''?>" title="urgent" data-color="orange" data-priority="2"></a>
+                    <a href="?filter=yellow" class="yellow <?= ($param == 'yellow') ? 'shadow' : ''?>" title="not urgent" data-color="yellow" data-priority="3"></a>
+                    <a href="?filter=green" class="green <?= ($param == 'green') ? 'shadow' : ''?>" title="low priority" data-color="green" data-priority="4"></a>
+                </ul>
+            </div>
+
+        </div>
+        <div id="edit-form" class="mydialog" title="Task Editing" style="display: none;">
+            <div>
+                <label for="task_edit">Task:</label>
+                <textarea name="task-edit" id="task-edit" rows="3" cols="50" value="" class="text ui-widget-content ui-corner-all" style="width: 100%;"></textarea>
+            </div>
+            <div>
+                <label for="notes-edit">Notes:</label>
+                <textarea style="width: 100%; box-sizing: border-box;" name="notes-edit" id="notes-edit" value="" class="text ui-widget-content ui-corner-all"></textarea>
+            </div>
+            <div>
+                <ul class="importance"><span>Priority:</span>
+                    <li title="extremely" data-color="red" data-priority="1"></li>
+                    <li title="urgent" data-color="orange" data-priority="2"></li>
+                    <li title="not urgent" data-color="yellow" data-priority="3"></li>
+                    <li class="shadow" title="low priority" data-color="green" data-priority="4"></li>
+                </ul>
+                <span>Due Date:</span>
+                <input type="text" id="datepickerD">
+                <input type="hidden" id="editedEl">
+            </div>
+        </div>
+        <div id="completed-form" title="Task is completed" style="display: none;">
+            <div id="task-completed"></div>
+            <div id="notes-completed"></div>
+            <div>
+                <span>Due Date:</span>
+                <span id="date-termination"></span>
+            </div>
+            <div>
+                <span>Completed Date:</span>
+                <span id="date-completed"></span>
+            </div>
+            <div>
+                <label for="notes_completed">Notes:</label>
+                <textarea style="width: 100%; box-sizing: border-box;" name="notes_completed" id="notes_completed" value="" ></textarea>
+            </div>
+        </div>
+        <div id="delete" title="Do you really want to delete the task?">
+            <input type="hidden" id="deletedElId">
+        </div>
+    </div>
+    <div class="wrap-search">
+        <form method="GET">
+            <input id="mySearch" name="search" type="text" placeholder="Search...">
+        </form>
+    </div>
+    <div id="block-items">
+        <?php
+        foreach ($items as $item) {
+            include 'item.php';
+        }
+        ?>
+    </div>
+    <div id="delete-c" title="Вы действительно хотите удалить задачу?">
+    </div>
+    <script src="resources/jquery-3.3.1.min.js"></script>
+    <script src="resources/jquery-ui.min.js"></script>
+    <script src="resources/jquery.ui.touch-punch.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

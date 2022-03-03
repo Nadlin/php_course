@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+}
+header {
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+p {
+  margin: 2px;
+}
+html {
+  min-height: 1px;;
+}
+body {
+  margin: 0;
+  padding-bottom: 30px;
+  height: 100%;
+  position: relative;
+  font-family: 'Caveat', cursive;
+}
+.elem {
+  border: 1px solid gray;
+  margin: 10px 0;
+  tmargin: 10px 5%;
+  position: relative;
+  font-size: 22px;
+  /*color: #414342;*/
+  font-family: 'Caveat', cursive;
+  background: #f4f4f4;
+  padding: 5px 10px;
+  line-height: 1;
+
+}
+.task-i {
+  margin-right: 120px;
+  display: block;
+}
+.exit, .edit, .done, .star, .exit-c {
+ position: absolute;
+ width: 20px;
+ height: 20px;
+ top: 5px;
+ color: rgba(0,0,0,0.3);
+}
+.exit, .exit-c {
+  right:10px;
+}
+.edit {
+ right:40px;
+}
+.done {
+  right: 105px;
+}
+.star {
+  right: 70px;
+  opacity: 0;
+}
+.exit::after, .edit::after, .done::after, .star + label::after, .exit-c::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  font-size: 21px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.exit::after, .exit-c::after {
+  content: "\f2ed"; 
+}
+.edit::after { 
+  content: "\f303";
+}
+.done::after {
+  content: "\f274";
+  font-weight: 400; 
+}
+.star:checked + label::after {
+  display: block;
+  content: "\f005";
+  font-weight: 900;
+}
+.star + label::after {
+  display: block;
+  content: "\f005";
+  font-weight: 400; 
+  right: 70px;
+  top:5px;
+  color: rgba(0,0,0,0.3);
+}
+.exit:hover, .edit:hover, .done:hover, .star:hover + label::after, .exit-c:hover {
+  color: rgba(0,0,0,1);
+}
+.importance {
+  padding-left:0;
+}
+.importance span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.importance li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 26px;
+  height: 26px;
+  margin-right: 15px;
+}
+.importance li[data-color="red"], .red {
+  background-color: red;
+}
+.importance li[data-color="orange"], .orange {
+  background-color: orange;
+}
+.importance li[data-color="yellow"], .yellow {
+  background-color: yellow;
+}
+.importance li[data-color="green"], .green {
+  background-color: rgb(31, 250, 31);
+}
+.notes {
+  font-size: 20px;
+  color: blue;
+  /*width:80%;*/
+}
+.important {
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.shadow {
+  box-shadow: 0 0 0 4px #5cc9fb;
+}
+.termination {
+  font-size: 16px;
+}
+.menu {
+  display: inline-block;
+  padding: 10px 40px 10px 20px;
+  color: #616060;
+  text-decoration: none;
+  font-size: 22px;
+  position: relative;
+}
+.menu span {
+  color: #5cc9fb;
+  position: absolute;
+  top: 0;
+  padding-left: 3px;
+}
+.active {
+  border-bottom: 2px solid #5cc9fb;
+  color: #414342;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.menu:hover {
+  color: #414342;
+}
+.item_ {
+  margin: 10px 0;
+  position: relative;
+  background: #f4f4f4;
+  padding: 5px 40px 5px 10px;
+  border: 1px solid gray;
+  line-height:1;
+}
+.task {
+  font-size:22px;
+}
+.competed-date {
+  font-size: 16px;
+}
+input[type="button"] {
+  padding: 5px 10px;
+}
+#container {
+  padding: 10px;
+}
+.ui-widget.ui-widget-content {
+  border: 3px solid #5cc9fb;
+  box-shadow:  15px 15px 55px 0 rgba(0,0,0,0.2);
+}
+fieldset {
+  border: 2px solid #5cc9fb;
+  width: 60%;
+  margin: 0 auto;
+  box-shadow:  0 10px 35px rgba(0,0,0,0.2);
+  color: #616060;
+}
+textarea, input[type="text"] {
+  border: 1px solid rgb(169,169,169);
+  box-shadow:  0 5px 15px rgba(0,0,0,0.07);
+}
+legend {
+  color: #000;
+  font-size: 24px;
+}
+fieldset p, fieldset textarea {
+  vertical-align: top; 
+  display: inline-block;
+}
+fieldset p {
+  width: 140px;
+}
+fieldset textarea {
+  width: calc(100% - 155px);
+}
+.mydialog span {
+  padding-right: 10px;
+  display: inline-block;
+  width: 135px;
+}
+.mydialog input {
+  width: 170px;
+}
+input, textarea, body, .ui-widget, .ui-widget textarea, .ui-dialog button, .ui-widget input  {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+}
+.ui-widget-content {
+  color: #616060;
+}
+.ui-widget textarea, .ui-widget-header, #task-completed, #date-termination, #date-completed {
+  font-size: 22px;
+  color:#000;
+}
+#date-termination, #date-completed {
+  padding-left: 10px;
+}
+#block-items {
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.wrap-search {
+  text-align: right;
+  padding: 10px;
+  width: 60%;
+  margin: 0 auto;
+}
+.wrap-search input {
+  padding: 5px 10px;
+  width: 250px;
+  color: #616060;
+}
+.buttons {
+  width: 60%;
+  margin: 0 auto;
+}
+.buttons input {
+  margin: 10px 10px 0 0;
+}
+textarea {
+  line-height: 1;
+  font-size: 22px;
+  margin-top: 10px;
+}
+.ui-dialog {
+  width: 500px !important;
+}
+#addItem {
+  float: right;
+  margin-top: 10px;
+}
+@media (max-width: 1024px) {
+  fieldset {
+    width: 100%;
+  }
+  #block-items {
+    width: 100%;
+  
+  }
+  .elem,.item_ {
+    margin-right: 30px;
+  }
+  .wrap-search {
+    width:100%;
+  }
+  .buttons {
+    width: 100%;
+  }
+  input:focus, textarea:focus {
+    border-color: #5cc9fb;
+    outline: 1px solid #5cc9fb;
+  }
+  @media (max-width: 550px) {
+    .ui-dialog {
+      width: 98% !important;
+    }
+  }
+  @media (max-width: 400px) {
+    fieldset p {
+      display: block !important;
+    }
+    fieldset textarea {
+      width:100% !important;
+    }
+  }
+}

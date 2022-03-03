@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/OpenServer/domains/localhost/site/.htaccess</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/Model/Users.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/Model/Session.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/View/header.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/View/Users.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/View/Guestbook.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/View/footer.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/Controller/MainController.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/config.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/Core/Db.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/site.sql</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/Model/Guestbook.php</file>
+            <file>file:/E:/OpenServer/domains/localhost/site/index.php</file>
+        </group>
+    </open-files>
+</project-private>
